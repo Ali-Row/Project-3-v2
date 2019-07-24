@@ -30,7 +30,7 @@ router.get("/api/products", function(req, res) {
   });
 });
 
-// GET a product by product_id
+// GET a product WHERE product_id matches input id
 router.get("/api/products/:id", function(req, res) {
   const condition = `item_id = ${req.params.id}`;
 
@@ -42,7 +42,7 @@ router.get("/api/products/:id", function(req, res) {
   });
 });
 
-// GET a product by product_name
+// GET a product WHERE product_name matches input name
 router.get("/api/products/n/:name", function(req, res) {
   const condition = `product_name LIKE '%${req.params.name}%'`;
   model.getWhere("products", condition, function(data) {
@@ -53,7 +53,7 @@ router.get("/api/products/n/:name", function(req, res) {
   });
 });
 
-// GET a product by product_type
+// GET a product WHERE product_type matches input type
 router.get("/api/products/t/:type", function(req, res) {
   const condition = `product_type LIKE '%${req.params.type}%'`;
   model.getWhere("products", condition, function(data) {
@@ -64,7 +64,7 @@ router.get("/api/products/t/:type", function(req, res) {
   });
 });
 
-// PUT (update) a product
+// UPDATE a product WHERE product_id matches input id
 router.put("/api/products/:id", function(req, res) {
   const condition = "item_id = " + req.params.id;
 
@@ -78,7 +78,7 @@ router.put("/api/products/:id", function(req, res) {
   });
 });
 
-// DELETE a product
+// DELETE a product WHERE product_id matches input id
 router.delete("/api/products/:id", function(req, res) {
   const condition = `item_id = ${req.params.id}`;
 
@@ -119,7 +119,7 @@ router.get("/api/customers", function(req, res) {
   });
 });
 
-// GET a customer by customer_id
+// GET a customer WHERE customer_id matches input id
 router.get("/api/customers/:id", function(req, res) {
   const condition = `customer_id = ${req.params.id}`;
 
@@ -131,7 +131,7 @@ router.get("/api/customers/:id", function(req, res) {
   });
 });
 
-// GET a customer by customer_name
+// GET a customer WHERE customer_name matches input name
 router.get("/api/customers/n/:name", function(req, res) {
   const condition = `(customer_first_name LIKE '%${
     req.params.name
@@ -144,7 +144,7 @@ router.get("/api/customers/n/:name", function(req, res) {
   });
 });
 
-// GET a customer by customer_email
+// GET a customer where customer_email matches input email
 router.get("/api/customers/e/:email", function(req, res) {
   const condition = `customer_email = '${req.params.email}'`;
 
@@ -156,7 +156,7 @@ router.get("/api/customers/e/:email", function(req, res) {
   });
 });
 
-// PUT (Update) a customer
+// UPDATE a customer WHERE customer_id matches input id
 router.put("/api/customers/:id", function(req, res) {
   const condition = "customer_id = " + req.params.id;
 
@@ -170,7 +170,7 @@ router.put("/api/customers/:id", function(req, res) {
   });
 });
 
-// DELETE a customer
+// DELETE a customer WHERE customer_id matches input id
 router.delete("/api/customers/:id", function(req, res) {
   const condition = `customer_id = ${req.params.id}`;
 
@@ -194,11 +194,13 @@ router.delete("/api/customers/:id", function(req, res) {
       cols = [customer_id, product_id]
       vals = [[cust_id, prod_id-1], [cust_id, prod_id-2], . . .[cust_id, prod_id-n]]]
 */
-router.post("/api/customers/list", function(req, res) {
+router.post("/api/customers/list", function (req, res) {
+  console.log(`create list`)
   // get customer id & product list
   const tmp = Object.values(req.body);
   const customerId = parseInt(tmp[0]);
   const list = tmp[1];
+  console.log(`shopping list post: customerID: ${customerId}, list: ${list}`)
   const cols = ["customer_id", "product_id"];
   let rows = [];
 
@@ -220,12 +222,14 @@ router.post("/api/customers/list", function(req, res) {
 });
 
 router.get("/api/customers/list/:id", function(req, res) {
-  model.findAndJoinCustomers(1, function(data) {
+  model.findAndJoinCustomers(req.params.id, function(data) {
     res.json(data);
   });
 });
 
-router.delete("/api/customers/list/:id", function(req, res) {
+// DELETE shopping_list item WHERE list_id matches input id
+router.delete("/api/customers/list/:id", function (req, res) {
+  console.log(`delete where list id`)
   const condition = `list_id = ${req.params.id}`;
 
   model.delete("shopping_list", condition, function(result) {
@@ -236,6 +240,22 @@ router.delete("/api/customers/list/:id", function(req, res) {
       res.status(200).end();
     }
   });
+});
+
+// DELETE all records in the shopping_list table WHERE customer_id matches input id
+router.delete('/api/list/:id', function (req, res) {
+  console.log(`delete where list id`)
+  const condition = `customer_id = ${req.params.id}`;
+  console.log(`router delete: customer_id=${req.params.id}`)
+
+  // model.delete("shopping_list", condition, function (result) {
+  //   if (result.affectedRows == 0) {
+  //     // If no rows were changed, then the ID must not exist, so 404
+  //     return res.status(404).end();
+  //   } else {
+  //     res.status(200).end();
+  //   }
+  // }); 
 });
 
 /**************************************************

@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import Modal from "react-awesome-modal";
-import "./style.css";
-import API from "../../utils/API";
-import CartImage from "../../assets/images/cart.png";
+import React, { Component } from 'react';
+import Modal from 'react-awesome-modal';
+import './style.css';
+import API from '../../utils/API';
+import CartImage from '../../assets/images/cart.png';
 
 export default class LoginModal extends Component {
   constructor(props) {
@@ -10,12 +10,22 @@ export default class LoginModal extends Component {
 
     this.state = {
       visible: false,
-      value: "",
-      message: "",
-      selected: localStorage.getItem("selected")
+      email: '',
+      message: '',
+      customerId: 0,
+      selected: []
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    // set state
+    this.setState({
+      message: '',
+      email: '',
+      selected: localStorage.getItem('selected')
+    });
   }
 
   openModal() {
@@ -27,32 +37,40 @@ export default class LoginModal extends Component {
   }
 
   handleChange(event) {
-    this.setState({ value: event.target.value });
+    this.setState({ email: event.target.value });
   }
 
   handleSubmit(event) {
     event.preventDefault();
 
+    let id = '';
+    const email = this.state.email;
+    const selected = localStorage.getItem('selected');
+
+    console.log('START login')
+    console.log(`selected: ${selected}`);
+    console.log(`email: ${email}`);
+
     // Get the customer id
-    API.getCustomerByEmail(this.state.value)
+    API.getCustomerByEmail(this.state.email)
       .then(res => {
-        let id = res.data.customers[0].customer_id;
+        id = res.data.customers[0].customer_id;
+        console.log(`id: ${id}`);
 
         // Put id in local storage so the Cart page knows whose list to display
-        localStorage.setItem("customerId", id);
+        localStorage.setItem('customerId', id);
 
         // if items were selected, store them in the db shopping_list table
-        if (this.state.selected !== undefined && this.state.selected !== "") {
-          let list = this.state.selected.split(",").map(Number);
-          console.log(list);
-          console.log(this.state.selected);
+        if (selected !== undefined && selected !== '') {
+          const list = selected.split(',');
+          console.log(list)
 
-          API.createShoppingList("shopping_list", {
-            customer_id: id,
-            list: list
-          })
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
+      API.createShoppingList("shopping_list", {
+          customer_id: id,
+          list: list
+        })
+        .then(res => console.log(res))
+        .catch(err => console.log(err));
 
           // Hide the modal & go to the Cart page
           this.setState({ visible: false });
@@ -63,6 +81,7 @@ export default class LoginModal extends Component {
         this.setState({ message: "Invalid customer email." });
         console.log(err);
       });
+    console.log('END login')
   }
 
   render() {
