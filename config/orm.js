@@ -116,7 +116,7 @@ let orm = {
     // queryString += condition;
 
     let queryString = `DELETE FROM ${tableInput} WHERE ${condition}`;
-
+console.log(`ORM querystring: ${queryString}`)
     connection.query(queryString, function(err, result) {
       if (err) {
         throw err;

@@ -243,19 +243,18 @@ router.delete("/api/customers/list/:id", function (req, res) {
 });
 
 // DELETE all records in the shopping_list table WHERE customer_id matches input id
-router.delete('/api/list/:id', function (req, res) {
-  console.log(`delete where list id`)
-  const condition = `customer_id = ${req.params.id}`;
-  console.log(`router delete: customer_id=${req.params.id}`)
+router.delete('/api/cid/shopping_list/:customer_id', function (req, res) {
+  const condition = `customer_id = ${req.params.customer_id}`;
+  console.log(`recieved call to customer_id = ${req.params.customer_id}, condition: ${condition}`)
 
-  // model.delete("shopping_list", condition, function (result) {
-  //   if (result.affectedRows == 0) {
-  //     // If no rows were changed, then the ID must not exist, so 404
-  //     return res.status(404).end();
-  //   } else {
-  //     res.status(200).end();
-  //   }
-  // }); 
+  model.delete("shopping_list", condition, function (result) {
+    if (result.affectedRows == 0) {
+      // If no rows were changed, then the ID must not exist, so 404
+      return res.status(404).end();
+    } else {
+      res.status(200).end();
+    }
+  }); 
 });
 
 /**************************************************

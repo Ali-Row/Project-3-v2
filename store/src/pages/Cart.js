@@ -49,9 +49,10 @@ class Cart extends Component {
       })
         .then(response => {
           console.log(response);
-          // API.deleteCustomerList(this.state.customerID)
-          //   .then( res => console.log(res))
-          //   .catch(err => console.log(err));
+          console.log('calling API delbycustid')
+          API.deleteByCustomerId('shopping_list', this.state.customerId)
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
         })
         .catch(error => console.log(error));
     });
