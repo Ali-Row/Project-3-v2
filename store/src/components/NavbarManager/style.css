@@ -1,0 +1,14 @@
+nav.navbar.navbar-default {
+  margin-bottom: 0;
+  font-family: 'Lato', sans-serif;
+}
+
+.navbar-nav {
+  margin-left: 50px;
+  font-family: 'Lato', sans-serif;
+}
+
+.nav-item {
+  margin-left: 10px;
+  font-family: 'Lato', sans-serif;
+}

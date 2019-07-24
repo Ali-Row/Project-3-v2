@@ -1,0 +1,38 @@
+.hero {
+  height: 500px;
+  width: 1200px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  font-family: 'Lato', sans-serif;
+}
+
+.hero::after {
+  content: "";
+  display: block;
+  opacity: .4;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: black;
+}
+
+.hero * {
+  position: relative;
+  z-index: 2;
+  font-family: 'Lato', sans-serif;
+}
+
+.hero h1, .hero h2 {
+  color: white;
+  font-family: 'Lato', sans-serif;
+}
+
+.hero h1 {
+  font-size: 60px;
+  padding-top: 140px;
+  margin-top: 0;
+  font-family: 'Lato', sans-serif;
+}

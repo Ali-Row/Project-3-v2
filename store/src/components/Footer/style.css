@@ -1,0 +1,21 @@
+.footer {
+  width: 100%;
+  min-height: 80px;
+  background: #E5E5E5;
+  text-align: center;
+  position: relative;
+  font-family: 'Lato', sans-serif;
+}
+
+.footer span {
+  min-height: 30px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 3px;
+  background: rgb(124, 124, 124);
+  font-size: 14px;
+  color: white;
+  font-family: 'Lato', sans-serif;
+}

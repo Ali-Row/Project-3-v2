@@ -1,0 +1,32 @@
+.modal {
+  position: fixed;
+  margin: 0 auto;
+  padding: 50px;
+  font-family: "Lato", sans-serif;
+}
+
+a {
+  margin: 3px;
+  font-family: "Lato", sans-serif;
+}
+
+p {
+  text-align: center;
+  font-family: "Lato", sans-serif;
+}
+
+form {
+  padding: 2em !important;
+  font-family: "Lato", sans-serif;
+}
+
+button {
+  border: none;
+  box-shadow: none;
+}
+
+#cart-image {
+  height: 35px;
+  border: none;
+  box-shadow: none;
+}
