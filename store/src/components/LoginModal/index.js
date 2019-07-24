@@ -77,6 +77,7 @@ export default class LoginModal extends Component {
       });
   }
 
+  
   render() {
     return (
       <section>

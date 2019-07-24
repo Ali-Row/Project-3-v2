@@ -123,6 +123,7 @@ let orm = {
       cb(result);
     });
   }, // delete
+  
   findAndJoinCustomers: function(id, cb) {
     const queryString = `SELECT * FROM customers JOIN shopping_list ON customers.customer_id = shopping_list.customer_id JOIN products ON shopping_list.product_id = products.item_id WHERE customers.customer_id = ${id};`;
 

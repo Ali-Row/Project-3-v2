@@ -210,7 +210,6 @@ router.post("/api/customers/list", function (req, res) {
   } else {
     console.log("Empty list.");
   }
-
   model.createBatch("shopping_list", cols, rows, function(result) {
     // Send back the ID
     res.json({

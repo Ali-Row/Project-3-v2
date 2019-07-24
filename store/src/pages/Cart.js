@@ -49,7 +49,7 @@ class Cart extends Component {
         })
         .catch(error => console.log(error));
     });
-  }
+  };
 
   getTotal = () => {
     let sum = 0;
