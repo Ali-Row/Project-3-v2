@@ -2,22 +2,25 @@
 const orm = require("../config/orm.js");
 
 const model = {
+  // get all
   all: function(tableName, cb) {
     orm.all(tableName, function(res) {
       cb(res);
     });
   },
+  // get WHERE a condition is met
   getWhere: function(tableName, condition, cb) {
     orm.getWhere(tableName, condition, function(res) {
       cb(res);
     });
   },
-  // The variables cols and vals are arrays.
+  // The variables cols and vals are key and value arrays.
   create: function(tableName, cols, vals, cb) {
     orm.create(tableName, cols, vals, function(res) {
       cb(res);
     });
   },
+  // This is a batch insert
   createBatch: function(tableName, cols, vals, cb) {
     orm.createBatch(tableName, cols, vals, function(res) {
       cb(res);

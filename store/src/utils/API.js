@@ -31,6 +31,10 @@ export default {
   delete: function(tableName, id) {
     return axios.delete(`/api/${tableName}/${id}`);
   },
+  // delete: Delete one record in a table WHERE customer id matches unique id
+  deleteByCustomerId: function (tableName, customer_id) {
+    return axios.delete(`/api/cid/${tableName}/${customer_id}`);
+  },
   // create: Create a record in a table
   create: function(tableName, objColVals) {
     return axios.post(`/api/${tableName}`, objColVals);
@@ -46,9 +50,6 @@ export default {
   // deleteShoppingList: Delete a record from the shopping_list table WHERE list_id matches
   deleteShoppingList: function(list_id) {
     return axios.delete(`/api/customers/list/${list_id}`);
-  },
-  deleteCustomerList: function (customer_id) {
-    return axios.delete(`/api/list/id`);
   },
   /********************************************************************************
    *  createShoppingList(): This is a bulk insert into the shopping_list table.

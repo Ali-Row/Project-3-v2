@@ -44,6 +44,7 @@ class Storefront extends Component {
     });
   };
 
+  
   // Map over this.state.actors and render a ActorCard component for each actor object
   render() {
     return (

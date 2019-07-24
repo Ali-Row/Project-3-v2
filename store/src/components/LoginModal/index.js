@@ -47,15 +47,10 @@ export default class LoginModal extends Component {
     const email = this.state.email;
     const selected = localStorage.getItem('selected');
 
-    console.log('START login')
-    console.log(`selected: ${selected}`);
-    console.log(`email: ${email}`);
-
     // Get the customer id
     API.getCustomerByEmail(this.state.email)
       .then(res => {
         id = res.data.customers[0].customer_id;
-        console.log(`id: ${id}`);
 
         // Put id in local storage so the Cart page knows whose list to display
         localStorage.setItem('customerId', id);
@@ -63,7 +58,6 @@ export default class LoginModal extends Component {
         // if items were selected, store them in the db shopping_list table
         if (selected !== undefined && selected !== '') {
           const list = selected.split(',');
-          console.log(list)
 
       API.createShoppingList("shopping_list", {
           customer_id: id,
@@ -81,9 +75,9 @@ export default class LoginModal extends Component {
         this.setState({ message: "Invalid customer email." });
         console.log(err);
       });
-    console.log('END login')
   }
 
+  
   render() {
     return (
       <section>
