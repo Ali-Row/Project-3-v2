@@ -33,7 +33,6 @@ export default {
   },
   // delete: Delete one record in a table WHERE customer id matches unique id
   deleteByCustomerId: function (tableName, customer_id) {
-    console.log(`sending call to: /api/cid/${tableName}/${customer_id}`)
     return axios.delete(`/api/cid/${tableName}/${customer_id}`);
   },
   // create: Create a record in a table

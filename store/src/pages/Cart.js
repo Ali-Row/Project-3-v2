@@ -15,15 +15,11 @@ class Cart extends Component {
   };
 
   componentDidMount() {
-    console.log('START cart')
+    // get the customer's shopping list
     this.setState({ customerId: localStorage.getItem('customerId') });
-
-    console.log(`id: ${this.state.customerId}`);
     API.getShoppingList(this.state.customerId).then(res => {
       this.setState({ list: res.data });
       this.getTotal();
-      //localStorage.clear();
-      console.log(`list: ${this.state.list}`)
     });
   }
 
@@ -38,10 +34,8 @@ class Cart extends Component {
 
   updateStock() {
     // API.update("products", 2, {product_name:"Lego Helicopter"})
-    console.log('updateStock')
     this.openModal();
     this.state.list.map(item => {
-      console.log('api call 1')
       API.update("products", item.product_id, {
         // clicks_without_sale: 0,
         stock_quantity: item.stock_quantity - 1,
@@ -49,7 +43,6 @@ class Cart extends Component {
       })
         .then(response => {
           console.log(response);
-          console.log('calling API delbycustid')
           API.deleteByCustomerId('shopping_list', this.state.customerId)
             .then(res => console.log(res))
             .catch(err => console.log(err));
@@ -66,7 +59,6 @@ class Cart extends Component {
         return t + price;
       });
     }
-
     this.setState({ total: sum.toFixed(2) });
   };
 

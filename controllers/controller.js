@@ -195,12 +195,10 @@ router.delete("/api/customers/:id", function(req, res) {
       vals = [[cust_id, prod_id-1], [cust_id, prod_id-2], . . .[cust_id, prod_id-n]]]
 */
 router.post("/api/customers/list", function (req, res) {
-  console.log(`create list`)
   // get customer id & product list
   const tmp = Object.values(req.body);
   const customerId = parseInt(tmp[0]);
   const list = tmp[1];
-  console.log(`shopping list post: customerID: ${customerId}, list: ${list}`)
   const cols = ["customer_id", "product_id"];
   let rows = [];
 
@@ -229,7 +227,6 @@ router.get("/api/customers/list/:id", function(req, res) {
 
 // DELETE shopping_list item WHERE list_id matches input id
 router.delete("/api/customers/list/:id", function (req, res) {
-  console.log(`delete where list id`)
   const condition = `list_id = ${req.params.id}`;
 
   model.delete("shopping_list", condition, function(result) {
@@ -245,7 +242,6 @@ router.delete("/api/customers/list/:id", function (req, res) {
 // DELETE all records in the shopping_list table WHERE customer_id matches input id
 router.delete('/api/cid/shopping_list/:customer_id', function (req, res) {
   const condition = `customer_id = ${req.params.customer_id}`;
-  console.log(`recieved call to customer_id = ${req.params.customer_id}, condition: ${condition}`)
 
   model.delete("shopping_list", condition, function (result) {
     if (result.affectedRows == 0) {
