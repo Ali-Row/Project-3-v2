@@ -1,0 +1,34 @@
+[
+  {
+    "id": 0,
+    "name": "Julian May",
+    "github": "https://github.com/julianmay9",
+    "image": "https://avatars0.githubusercontent.com/u/46761540?s=460&v=4",
+    "portfolio": "https://julianmay9.github.io/updated-portfolio/",
+    "role": "Group Lead / Pages & Components / Store Manager functionality / Database / Front-end logic"
+  },
+  {
+    "id": 1,
+    "name": "Sherrie McNulty",
+    "github": "https://github.com/sherriemcnulty",
+    "image": "https://avatars0.githubusercontent.com/u/40706954?s=460&v=4",
+    "portfolio": "",
+    "role": "Routing / Database / Login functionality / Front-end logic"
+  },
+  {
+    "id": 2,
+    "name": "Ashley Sweatt",
+    "github": "https://github.com/aswea002",
+    "image": "https://ca.slack-edge.com/TEHQVKZJ5-UFQP0LEN4-eca0119ba32f-512",
+    "portfolio": "https://aswea002.github.io/Bootstrap-Portfolio/",
+    "role": "Shopping Cart functionality / Front-end and back-end / Presentation slideshow"
+  },
+  {
+    "id": 3,
+    "name": "Alastair Rowden",
+    "github": "https://github.com/Ali-Row",
+    "image": "https://avatars3.githubusercontent.com/u/46506905?s=460&v=4",
+    "portfolio": "https://ali-row.github.io/Portfolio/index.html",
+    "role": "Storefront functionality / CSS"
+  }
+]
