@@ -1,39 +1,41 @@
-.card {
+.department-card {
   background: #fff;
   border-radius: 2px;
-  height: 80px;
+  height: 120px;
   margin: 1rem;
   position: relative;
-  width: 200px;
+  width: 1800px;
   box-shadow: 0 3px 6px #999, 0 3px 6px #999;
   text-align: left;
 }
 
-.card > .img-container {
+.department-card > .img-empty {
   height: 0%;
   overflow: hidden;
   text-align: center;
   background: #6caddc;
 }
-.card > .img-container > img {
+.department-card > .img-empty > img {
   width: 100%;
 }
 
-.card > .content {
+.department-card > .department-information {
   padding-left: 1rem;
   padding-right: 1rem;
   font-size: 12px;
 }
 
-.card > .content > ul {
+.department-card > .department-information > ul {
   list-style-type: none;
 }
 
-.card > .content > ul > li {
-  margin-top: 8px;
+.department-card > .department-information > ul > li {
+  margin-top: 12px;
+  margin-left: -22px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.card > .select {
+.department-card > .select {
   color: #ff1744;
   font-size: 48px;
   position: absolute;
@@ -42,6 +44,6 @@
   cursor: pointer;
 }
 
-.card > .select:hover {
+.department-card > .select:hover {
   color: #d50000;
 }

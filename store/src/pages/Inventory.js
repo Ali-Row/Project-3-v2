@@ -7,7 +7,6 @@ import Row from "../components/Row";
 import Col from "../components/Col";
 import Title from "../components/Title";
 import InventoryCard from "../components/InventoryCard";
-//import DepartmentCard from "../components/DepartmentCard";
 import SearchForm from "../components/SearchForm";
 import SearchDepartments from "../components/SearchDepartments";
 import SearchCategories from "../components/SearchCategories";
@@ -109,7 +108,7 @@ class Inventory extends Component {
         </Row>
         <Row>
           <Col size="md-5">
-            <Title>Search For Product</Title>
+            <Title>Search By Product Name</Title>
               <SearchForm
                 handleFormSubmit={this.handleFormSubmit}
                 handleInputChange={this.handleInputChange}
@@ -122,7 +121,9 @@ class Inventory extends Component {
                     key={product.item_id}
                     name={product.product_name}
                     image={product.product_image}
+                    quantityInStore={product.stock_quantity}
                     price={product.price}
+                    salePrice={product.sale_price}
                   />
                 ))}
               </Wrapper>
@@ -130,12 +131,25 @@ class Inventory extends Component {
           </Col>
           <Col size="md-2"></Col>
           <Col size="md-5">
-            <Title>Search Departments</Title>
+            <Title>Search By Department</Title>
               <SearchDepartments
                 handleDepartmentSearch={this.handleDepartmentSearch}
                 handleDepartmentChange={this.handleDepartmentChange}
-                products={this.state.products}
+                departments={this.state.departments}
               />
+              <Wrapper>
+                {this.state.departments.map(product => (
+                  <InventoryCard
+                    id={product.item_id}
+                    key={product.item_id}
+                    name={product.product_name}
+                    image={product.product_image}
+                    quantityInStore={product.stock_quantity}
+                    price={product.price}
+                    salePrice={product.sale_price}
+                  />
+                ))}
+              </Wrapper>
               <SearchResults results={this.state.results} />
           </Col>
         </Row>
@@ -154,7 +168,9 @@ class Inventory extends Component {
                     key={product.item_id}
                     name={product.product_name}
                     image={product.product_image}
+                    quantityInStore={product.stock_quantity}
                     price={product.price}
+                    salePrice={product.sale_price}
                   />
                 ))}
               </Wrapper>

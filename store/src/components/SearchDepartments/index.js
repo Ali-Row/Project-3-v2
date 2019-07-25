@@ -14,11 +14,11 @@ function SearchDepartments(props) {
           list={props.databaseTable}
           type="text"
           className="form-control"
-          placeholder="Which department do you want to see?"
+          placeholder="Choose a department (e.g. Toys, Sports)"
           id={props.inputType}
         />
-        <datalist id="products">
-          {props.products.map(product => (
+        <datalist id="departments">
+          {props.departments.map(product => (
             <option value={product} key={product} />
           ))}
         </datalist>

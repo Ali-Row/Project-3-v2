@@ -1,40 +1,43 @@
-.card {
+.inventory-card {
   background: #fff;
-  border-radius: 2px;
-  height: 325px;
+  border-radius: 10px;
+  height: 160px;
   margin: 1rem;
   position: relative;
-  width: 325px;
+  width: 180px;
   box-shadow: 0 3px 6px #999, 0 3px 6px #999;
   text-align: left;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
 }
 
-.card > .img-container {
-  height: 60%;
+.inventory-card > .img-holder {
+  height: 0%;
   overflow: hidden;
   text-align: center;
   background: #6caddc;
 }
 
-.card > .img-container > img {
+.inventory-card > .img-holder > img {
   width: 100%;
 }
 
-.card > .content {
+.inventory-card > .product-information {
   padding-left: 1rem;
   padding-right: 1rem;
   font-size: 12px;
 }
 
-.card > .content > ul {
+.inventory-card > .product-information > ul {
   list-style-type: none;
 }
 
-.card > .content > ul > li {
-  margin-top: 8px;
+.inventory-card > .product-information > ul > li {
+  margin-top: 12px;
+  margin-left: -22px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.card > .select {
+.inventory-card > .select {
   color: #ff1744;
   font-size: 48px;
   position: absolute;

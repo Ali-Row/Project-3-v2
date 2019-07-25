@@ -3,13 +3,16 @@ import "./style.css";
 
 function DepartmentCard(props) {
   return (
-    <div onClick={() => props.handleSelect(props.id)} className="card select">
-      <div className="img-container">
+    <div className="department-card select">
+      <div className="img-empty">
       </div>
-      <div className="content">
+      <div className="department-information">
         <ul>
           <li>
             <strong>Department:</strong> {props.name}
+          </li>
+          <li>
+            <strong>Overhead: $</strong> {props.overhead}
           </li>
           <li>
             <strong>Profit: $</strong> {props.profit}
