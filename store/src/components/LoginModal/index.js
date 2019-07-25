@@ -95,7 +95,7 @@ export default class LoginModal extends Component {
           <div className=".children">{this.props.children}</div>
           <form onSubmit={this.handleSubmit}>
             Email:&nbsp;
-            <input
+            <input autofocus
               type="email"
               value={this.state.value}
               onChange={this.handleChange}

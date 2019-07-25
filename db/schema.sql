@@ -1,12 +1,11 @@
 
-
 # This is for your local database if you choose to drop & restore it.
 # You cannot drop the heroku database
 DROP DATABASE IF EXISTS store_db;
 CREATE DATABASE store_db;
 
 # Heroku database
-USE zl5m5flvs8f7gngl;
+USE j1at0jsvnpolxqjn;
 
 # Local database
 USE store_db;
