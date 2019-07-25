@@ -29,6 +29,8 @@ function SearchWithinBudget(props) {
         </div>
       </form>
     </div>
+
+    
   );
 }
 
