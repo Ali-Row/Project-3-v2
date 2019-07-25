@@ -1,0 +1,65 @@
+.profile-card {
+  background: #fff;
+  border-radius: 2px;
+  height: 600px;
+  margin: 1rem;
+  position: relative;
+  width: 325px;
+  box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+  text-align: left;
+}
+
+.profile-card > .img-container {
+  height: 50%;
+  overflow: hidden;
+  text-align: center;
+  background: #6caddc;
+}
+.profile-card > .img-container > img {
+  width: 100%;
+}
+
+.profile-card > .team-info {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 15px;
+}
+
+.profile-card > .team-info > ul {
+  list-style-type: none;
+}
+
+.profile-card > .team-info > ul > li {
+  margin-top: 18px;
+  margin-left: -22px;
+}
+
+.profile-card > .select {
+  color: #ff1744;
+  font-size: 48px;
+  font-family: 'Lato', sans-serif;
+  position: absolute;
+  top: -20px;
+  right: 5px;
+  cursor: pointer;
+}
+
+.profile-card:hover {
+  background-image: linear-gradient(to right, rgb(238, 238, 238) , rgb(204, 204, 204));
+
+  transition: linear-gradient 0.1s ease-out;
+  -moz-transition: linear-gradient 0.1s ease-out;
+  -webkit-transition: linear-gradient 0.1s ease-out;
+  -o-transition: linear-gradient 0.1s ease-out;
+
+  margin-top: 8px;
+
+  transition: margin-top 0.1s ease-out;
+  -moz-transition: margin-top 0.1s ease-out;
+  -webkit-transition: margin-top 0.1s ease-out;
+  -o-transition: margin-top 0.1s ease-out;
+}
+
+.profile-card:active {
+  background-image: linear-gradient(to right, rgb(224, 224, 224) , rgb(185, 185, 185));
+}
