@@ -16,6 +16,8 @@ INSERT INTO customers (customer_first_name, customer_second_name, customer_email
 INSERT INTO customers (customer_first_name, customer_second_name, customer_email) VALUES ('Snow', 'Flake', 'snowflake@northpole.com');
 INSERT INTO customers (customer_first_name, customer_second_name, customer_email) VALUES ('Bugs', 'Bunny', 'bugsbunny@looneytunes.com');
 INSERT INTO customers (customer_first_name, customer_second_name, customer_email) VALUES ('Elmar', 'Fudd', 'elmarfudd@looneytunes.com');
+INSERT INTO customers (customer_first_name, customer_second_name, customer_email) VALUES ('Test', 'It', 'test@it.com');
+INSERT INTO customers (customer_first_name, customer_second_name, customer_email) VALUES ('Test', 'Test', 'test@test.com');
 
 # Seeds for "shopping_list" table
 INSERT INTO shopping_list (customer_id, product_id) VALUES (1, 1);

@@ -130,7 +130,7 @@ class Cart extends Component {
                 Purchase My Order
               </button>
 
-              <Modal
+              <Modal 
                 visible={this.state.visible}
                 width="400"
                 height="200"
@@ -138,18 +138,12 @@ class Cart extends Component {
                 onClickAway={() => this.closeModal()}
               >
                 <div>
-                  <h1>Thank You For Your Purchase!</h1>
-                  <p>Your items are on the way!</p>
-
-                  {/* <input
-                    type="email"
-                    value={this.state.value}
-                    onChange={this.handleChange}
-                    required={true}
-                  /> */}
+                  <p margin='center' className='header'>Thank You For Your Purchase!
+                    <br></br>
+                  Your items are on the way!</p>
                   <a
                     href="javascript:void(0);"
-                    onClick={() => this.closeModal()}
+                    onClick={() => this.props.history.push('/storefront')}
                   >
                     Close
                   </a>
