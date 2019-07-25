@@ -14,7 +14,7 @@ function SearchForm(props) {
           list={props.databaseTable}
           type="text"
           className="form-control"
-          placeholder="What are you looking for?"
+          placeholder="What product are you looking for?"
           id={props.inputType}
         />
         <datalist id="products">

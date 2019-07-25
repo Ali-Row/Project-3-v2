@@ -5,8 +5,7 @@ import Row from "../components/Row";
 import Col from "../components/Col";
 import Title from "../components/Title";
 import Wrapper from "../components/Wrapper";
-import InventoryCard from "../components/InventoryCard";
-import { Input, TextArea, FormBtn } from "../components/Form";
+import ProductCard from "../components/ProductCard";
 import SearchForm from "../components/SearchForm";
 import SearchResults from "../components/SearchResults";
 import SearchWithinBudget from "../components/SearchWithinBudget";
@@ -73,9 +72,8 @@ class Search extends Component {
       <div>
         <Container style={{ minHeight: "80%" }}>
           <Row>
-            <Col size="md-2"></Col>
-            <Col size="md-8">
-              <Title>Search products</Title>
+            <Col size="md-4">
+            <Title>Search products</Title>
               <Alert
                 type="danger"
                 style={{ opacity: this.state.error ? 1 : 0, marginBottom: 10 }}
@@ -89,7 +87,7 @@ class Search extends Component {
               />
               <Wrapper>
                 {this.state.userResults.map(product => (
-                  <InventoryCard
+                  <ProductCard
                     id={product.item_id}
                     key={product.item_id}
                     name={product.product_name}
@@ -99,15 +97,8 @@ class Search extends Component {
                 ))}
               </Wrapper>
               <SearchResults results={this.state.results} />
-              <br/>
-              <hr/>
-              <br/>
             </Col>
-            <Col size="md-2"></Col>
-          </Row>
-          <Row>
-            <Col size="md-2"></Col>
-            <Col size="md-8">
+            <Col size="md-4">
               <Title>Do you have a budget?</Title>
                 <SearchWithinBudget
                   handleUserBudgetLimit={this.handleUserBudgetLimit}
@@ -116,7 +107,7 @@ class Search extends Component {
                 />
                 <Wrapper>
                 {this.state.withinBudget.map(product => (
-                  <InventoryCard
+                  <ProductCard
                     id={product.item_id}
                     key={product.item_id}
                     name={product.product_name}
@@ -125,16 +116,9 @@ class Search extends Component {
                   />
                 ))}
               </Wrapper>
-                <SearchResults results={this.state.results} />
-                <br/>
-                <hr/>
-                <br/>
+              <SearchResults results={this.state.results} />
             </Col>
-            <Col size="md-2"></Col>
-          </Row>
-          <Row>
-            <Col size="md-2"></Col>
-            <Col size="md-8">
+            <Col size="md-4">
               <Title>View Sale Items</Title>
                 <SearchSaleItems
                   handleSaleFormSubmit={this.handleSaleFormSubmit}
@@ -142,7 +126,7 @@ class Search extends Component {
                 />
                 <Wrapper>
                 {this.state.saleItems.map(product => (
-                  <InventoryCard
+                  <ProductCard
                     id={product.item_id}
                     key={product.item_id}
                     name={product.product_name}
@@ -151,12 +135,8 @@ class Search extends Component {
                   />
                 ))}
               </Wrapper>
-                <SearchResults results={this.state.results} />
-                <br/>
-                <hr/>
-                <br/>
+              <SearchResults results={this.state.results} />
             </Col>
-            <Col size="md-2"></Col>
           </Row>
         </Container>
       </div>

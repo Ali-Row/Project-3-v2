@@ -8,7 +8,7 @@ function SearchWithinBudget(props) {
       <form className="search">
         <div className="form-group">
           <label htmlFor={props.inputType}>{props.inputType}</label>
-          <input
+          <span>$ <input
             value={props.userBudget}
             onChange={props.handleBudgetChange}
             name={props.inputType}
@@ -17,7 +17,7 @@ function SearchWithinBudget(props) {
             className="form-control"
             placeholder="What is your budget?"
             id={props.inputType}
-          />
+          /></span>
           <datalist id="products">
             {props.products.map(product => (
               <option value={product} key={product} />

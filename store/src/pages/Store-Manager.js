@@ -11,6 +11,7 @@ import Inventory from "./Inventory";
 import Sales from "./Sales";
 import StockManagement from "./Stock-Management";
 import NavbarManager from "../components/NavbarManager";
+import NavbarManagerLarge from "../components/NavbarManagerLarge";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class StoreManager extends Component {
@@ -51,7 +52,6 @@ class StoreManager extends Component {
     error: ""
   };
 
-  // When the component mounts, get a list of all available base breeds and update this.state.breeds
   componentDidMount() {
     this.loadPage();
     //this.loadProducts();
@@ -93,12 +93,27 @@ class StoreManager extends Component {
         <Row>
           <Col size="md-12">
             <br/>
-            <h1>Welcome to your customizable store manager portal</h1>
+            <h1>Welcome to your store manager portal.</h1>
             <br/>
-            <h3>Below are just some of the ways you can make your life easier...</h3>
+            <h3>What are you looking to manage today?</h3>
             <br/>
-            <hr/>
+            <h4>Please select one of the following options: [X]</h4>
             <br/>
+            <Router>
+              <NavbarManagerLarge />
+                <Wrapper>
+                  <Route exact path="/inventory" component={Inventory} />
+                  <Route exact path="/sales" component={Sales} />
+                  <Route exact path="/stock-management" component={StockManagement} />
+                </Wrapper>
+            </Router>
+            <br/>
+            <br/>
+          </Col>
+        </Row>
+        <Row>
+          <Col size="md-12">
+            <Title>All of the products currently in store:</Title>
           </Col>
         </Row>
         <Wrapper>
@@ -108,7 +123,9 @@ class StoreManager extends Component {
               key={product.item_id}
               name={product.product_name}
               image={product.product_image}
+              quantityInStore={product.stock_quantity}
               price={product.price}
+              salePrice={product.sale_price}
             />
           ))}
         </Wrapper>

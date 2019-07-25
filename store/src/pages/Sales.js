@@ -147,11 +147,13 @@ class Sales extends Component {
               <Wrapper>
                 {this.state.saleItems.map(product => (
                   <InventoryCard
-                    id={product.item_id}
-                    key={product.item_id}
-                    name={product.product_name}
-                    image={product.product_image}
-                    price={product.price}
+                  id={product.item_id}
+                  key={product.item_id}
+                  name={product.product_name}
+                  image={product.product_image}
+                  quantityInStore={product.stock_quantity}
+                  price={product.price}
+                  salePrice={product.sale_price}
                   />
                 ))}
               </Wrapper>
@@ -181,7 +183,9 @@ class Sales extends Component {
                     key={product.item_id}
                     name={product.product_name}
                     image={product.product_image}
+                    quantityInStore={product.stock_quantity}
                     price={product.price}
+                    salePrice={product.sale_price}
                   />
                 ))}
               </Wrapper>
@@ -205,7 +209,9 @@ class Sales extends Component {
                     key={product.item_id}
                     name={product.product_name}
                     image={product.product_image}
+                    quantityInStore={product.stock_quantity}
                     price={product.price}
+                    salePrice={product.sale_price}
                   />
                 ))}
               </Wrapper>
