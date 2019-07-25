@@ -96,17 +96,18 @@ export default class LoginModal extends Component {
           <form onSubmit={this.handleSubmit}>
             Email:&nbsp;
             <input autofocus
+              placeholder="Enter email"
               type="email"
               value={this.state.value}
               onChange={this.handleChange}
               required={true}
             />
             &nbsp;
-            <input type="submit" value="Submit" />
+            <input className="btn btn-secondary rounded-0" type="submit" value="Submit" />
           </form>
           <p>{this.state.message}</p>
         </Modal>
-        <button onClick={() => this.openModal()}>
+        <button id="shopping-list-icon" onClick={() => this.openModal()}>
           <img id="cart-image" src={CartImage} alt="shopping cart" />
         </button>
       </section>

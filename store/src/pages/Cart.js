@@ -5,6 +5,7 @@ import Row from "../components/Row";
 import Col from "../components/Col";
 import API from "../utils/API";
 import Modal from "react-awesome-modal";
+import "./style.css"
 
 class Cart extends Component {
   state = {
@@ -126,7 +127,7 @@ class Cart extends Component {
                   </tr>
                 </tbody>
               </table>
-              <button onClick={() => this.updateStock()}>
+              <button className="btn btn-secondary rounded-0" onClick={() => this.updateStock()}>
                 Purchase My Order
               </button>
 
