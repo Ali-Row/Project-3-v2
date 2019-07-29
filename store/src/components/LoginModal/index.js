@@ -24,7 +24,7 @@ export default class LoginModal extends Component {
     this.setState({
       message: '',
       email: '',
-      selected: localStorage.getItem('selected')
+      selected: ''
     });
   }
 
@@ -44,7 +44,8 @@ export default class LoginModal extends Component {
     event.preventDefault();
 
     let id = '';
-    const email = this.state.email;
+    let list = [];
+    
     const selected = localStorage.getItem('selected');
 
     // Get the customer id
@@ -56,10 +57,11 @@ export default class LoginModal extends Component {
         localStorage.setItem('customerId', id);
 
         // if items were selected, store them in the db shopping_list table
-        if (selected !== undefined && selected !== '') {
-          const list = selected.split(',');
+        if (selected != undefined && selected !== null) {
+          list = selected.split(',');
+        }
 
-      API.createShoppingList("shopping_list", {
+        API.createShoppingList("shopping_list", {
           customer_id: id,
           list: list
         })
@@ -69,7 +71,6 @@ export default class LoginModal extends Component {
           // Hide the modal & go to the Cart page
           this.setState({ visible: false });
           this.props.goToCart();
-        }
       })
       .catch(err => {
         this.setState({ message: "Invalid customer email." });
@@ -96,7 +97,7 @@ export default class LoginModal extends Component {
           <form onSubmit={this.handleSubmit}>
             <p>Use: test@test.com</p>
             Email:&nbsp;
-            <input autofocus
+            <input autoFocus
               placeholder="Enter email"
               type="email"
               value={this.state.value}
