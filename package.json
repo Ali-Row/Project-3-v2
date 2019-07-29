@@ -1,7 +1,7 @@
 {
-  "name": "group-project-3",
+  "name": "products-r-us",
   "version": "1.0.0",
-  "description": "",
+  "description": "- [Products R Us](https://store-project.herokuapp.com/)",
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
@@ -18,7 +18,7 @@
     "url": "git+https://github.com/sherriemcnulty/group-project-3.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Sherrie McNulty, Julian May, Ashley Sweatt, Alistair Rowden",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/sherriemcnulty/group-project-3/issues"

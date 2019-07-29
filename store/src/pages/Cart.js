@@ -21,6 +21,7 @@ class Cart extends Component {
     API.getShoppingList(this.state.customerId).then(res => {
       this.setState({ list: res.data });
       this.getTotal();
+      localStorage.removeItem('selected');
     });
   }
 

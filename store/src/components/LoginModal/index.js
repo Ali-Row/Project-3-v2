@@ -94,6 +94,7 @@ export default class LoginModal extends Component {
           </a>
           <div className=".children">{this.props.children}</div>
           <form onSubmit={this.handleSubmit}>
+            <p>Use: test@test.com</p>
             Email:&nbsp;
             <input autofocus
               placeholder="Enter email"
