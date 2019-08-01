@@ -17,9 +17,9 @@ function App() {
       <div>
         <Navbar />
         <Wrapper>
-          <Route exact path="/" component={Storefront} />
-          <Route exact path="/storefront" component={Storefront} />
+          <Route exact path="/" component={About} />
           <Route exact path="/about" component={About} />
+          <Route exact path="/storefront" component={Storefront} />
           <Route exact path="/search" component={Search} />
           <Route exact path="/shopping-list" component={ShoppingList} />
           <Route exact path="/cart" component={Cart} />

@@ -26,16 +26,19 @@ const model = {
       cb(res);
     });
   },
+   // update (objColVals) is an object with column value pairs
   update: function(tableName, objColVals, condition, cb) {
     orm.update(tableName, objColVals, condition, function(res) {
       cb(res);
     });
   },
+    // delete row that matches the condition
   delete: function(tableName, condition, cb) {
     orm.delete(tableName, condition, function(res) {
       cb(res);
     });
   },
+   // find customer's shopping list
   findAndJoinCustomers: function(id, cb) {
     orm.findAndJoinCustomers(id, function(res) {
       cb(res);
